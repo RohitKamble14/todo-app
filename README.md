@@ -161,3 +161,74 @@ This project demonstrates a single-page To-Do List app with features to add, com
    ```bash
    docker ps
 5. **Access app at http://ec2-public-ip**:
+
+## Deployment on AWS EKS 
+
+1. **Prerequisites (Local Machine)**:
+   ```bash
+   1. AWS CLI (to interact with AWS services)
+   2. aws configure
+   2. kubectl (Kubernetes command-line tool)
+   3. eksctl (EKS management CLI tool)
+2. **Deployment Steps (Create EKS cluster)**:
+   ```bash
+   eksctl create cluster --name todo-app-cluster --region us-east-1 --nodegroup-name todo-nodes --node-type t3.medium --nodes 2 --nodes-min 1 --nodes-max 3
+3. **Configure kubectl**:
+   ```bash
+   aws eks --region us-east-1 update-kubeconfig --name todo-app-cluster
+4. **Create todo-app-deployment.yaml**:
+   ```bash
+   apiVersion: apps/v1
+   kind: Deployment
+   metadata:
+    name: todo-app-deployment
+    labels:
+     app: todo-app
+   spec:
+   replicas: 2
+   selector:
+    matchLabels:
+      app: todo-app
+   template:
+    metadata:
+      labels:
+        app: todo-app
+    spec:
+      containers:
+      - name: todo-app
+        image: <your-dockerhub-username>/todo-app:latest
+        ports:
+        - containerPort: 80
+5. **Create todo-app-service.yaml**:
+   ```bash
+   apiVersion: v1
+   kind: Service
+   metadata:
+    name: todo-app-service
+   spec:
+   selector:
+    app: todo-app
+   ports:
+   - protocol: TCP
+    port: 80
+    targetPort: 80
+   type: LoadBalancer
+6. **Deploy to EKS**:
+   ```bash
+   kubectl apply -f todo-app-deployment.yaml
+   kubectl apply -f todo-app-service.yaml
+7. **Get LoadBalancer URL**:
+   ```bash
+   kubectl get services
+
+8. **Access app at http://<load-balancer-url>.**:
+
+### Cleanup
+
+1. **Delete EKS cluster**:
+   ```bash
+   eksctl delete cluster --name todo-app-cluster --region us-east-1
+2. **Delete Kubernetes resources**:
+   ```bash
+   kubectl delete -f todo-app-service.yaml
+   kubectl delete -f todo-app-deployment.yaml
