@@ -117,7 +117,7 @@ This project demonstrates a single-page To-Do List app with features to add, com
    git push origin main
 
 10. **Verify the Workflow**:
-    # Go to your GitHub repository → Actions tab → Monitor the workflow run.
+    ### Go to your GitHub repository → Actions tab → Monitor the workflow run.
 
 ## Deployment on AWS EC2
 
@@ -160,4 +160,4 @@ This project demonstrates a single-page To-Do List app with features to add, com
 4. **Verify the Container is Running**:
    ```bash
    docker ps
-5. **Access app at http://<ec2-public-ip>**:
+5. **Access app at http://ec2-public-ip**:
