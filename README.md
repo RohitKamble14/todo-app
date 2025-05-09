@@ -43,6 +43,8 @@ This project demonstrates a single-page To-Do List app with features to add, com
 5. **Open your browser and go. You should see the To-Do List app.**:
    ```bash
     http://localhost:8081.
+![Screenshot 2025-05-09 103154](https://github.com/user-attachments/assets/722d5b84-7df4-45f4-b2cc-f13a7431428b)
+
 6. **Stop and remove the container**:
    ```bash
    docker stop todo-app && docker rm todo-app
