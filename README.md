@@ -22,5 +22,5 @@ This project demonstrates a single-page To-Do List app with features to add, com
 ## Setup and Installation
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/<your-username>/todo-app-eks.git
-   cd todo-app-eks
+   git clone https://github.com/RohitKamble14/todo-app.git
+   cd todo-app
