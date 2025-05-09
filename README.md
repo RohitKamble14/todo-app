@@ -221,7 +221,7 @@ This project demonstrates a single-page To-Do List app with features to add, com
    ```bash
    kubectl get services
 
-8. **Access app at http://<load-balancer-url>.**:
+8. **Access app at http://load-balancer-url.**:
 
 ### Cleanup
 
