@@ -162,4 +162,4 @@ This project demonstrates a single-page To-Do List app with features to add, com
 4. **Verify the Container is Running**:
    ```bash
    docker ps
-5. **Access app at http://<ec2-public-ip>:   
+5. **Access app at http://<ec2-public-ip>
