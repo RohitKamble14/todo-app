@@ -27,6 +27,16 @@ This project demonstrates a single-page To-Do List app with features to add, com
 ## Dockerize the App
 2. **Create a Dockerfile**:
    ```bash
-   FROM nginx:alpine COPY index.html /usr/share/nginx/html/index.html EXPOSE 80 CMD ["nginx", "-g", "daemon off;"]
-
+   FROM nginx:alpine 
+   COPY index.html /usr/share/nginx/html/index.html 
+   EXPOSE 80 CMD ["nginx", "-g", "daemon off;"]
 ## Test the Docker Image Locally
+3. **Build the Docker image**:
+   ```bash
+   docker build -t todo-app:latest .
+4. **Run the container locally to test**:
+   ```bash
+   docker run -d -p 8080:81 --name todo-app todo-app:latest
+5. **Open your browser and go. You should see the To-Do List app.**:
+   ```bash
+    http://localhost:8080.
