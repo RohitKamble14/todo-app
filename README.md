@@ -163,6 +163,8 @@ This project demonstrates a single-page To-Do List app with features to add, com
    ```bash
    docker ps
 5. **Access app at http://ec2-public-ip**:
+![Screenshot 2025-05-09 111252](https://github.com/user-attachments/assets/6ae8a60e-c61d-4587-8981-4ea198179ca4)
+
 
 ## Deployment on AWS EKS 
 
@@ -222,8 +224,12 @@ This project demonstrates a single-page To-Do List app with features to add, com
 7. **Get LoadBalancer URL**:
    ```bash
    kubectl get services
+![Screenshot_9-5-2025_12312_us-east-1 console aws amazon com](https://github.com/user-attachments/assets/b6db6d33-4aa9-4309-a9c0-b8914b07eca0)
+![Screenshot 2025-05-09 122831](https://github.com/user-attachments/assets/3b17aaaa-e1cd-475c-a821-2b1703686dfc)
 
 8. **Access app at http://load-balancer-url.**
+![Screenshot 2025-05-09 122750](https://github.com/user-attachments/assets/89232525-0283-40ce-b2fa-6a523ff88ed2)
+
 
 ### Cleanup
 
