@@ -32,6 +32,7 @@ jobs:
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
+          cd /
           echo "Deploying to Kubernetes (Kind)..."
           kubectl delete deployment todo-app --ignore-not-found
           kubectl apply -f todo-app-k8s/deployment.yaml
