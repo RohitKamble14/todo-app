@@ -34,6 +34,6 @@ jobs:
         script: |
           echo "Deploying to Kubernetes (Kind)..."
           kubectl delete deployment todo-app --ignore-not-found
-          kubectl apply -f ~/todo-k8s/deployment.yaml
-          kubectl apply -f ~/todo-k8s/service.yaml
+          kubectl apply -f ~/todo-app-k8s/deployment.yaml
+          kubectl apply -f ~/todo-app-k8s/service.yaml
           kubectl rollout status deployment/todo-app
