@@ -21,3 +21,16 @@ jobs:
           context: .
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/todo-app:latest
+
+      - name: Deploy to EC2 via SSH
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host:${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull rohitkamble14/todo-app
+            docker stop todo-app || true
+            docker rm todo-app || true
+            docker run -d -p 80:80 --name todo-app rohitkamble14/todo-app
+    
